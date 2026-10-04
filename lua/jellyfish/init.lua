@@ -47,4 +47,39 @@ function M.load()
   end
 end
 
+--- Automatically install the NvChad base46 theme.
+--- Copies the `nvchad.lua` theme file into the user's `lua/themes/` directory
+--- so that it appears in the `<space> + t + h` theme picker.
+function M.patch_nvchad()
+  local src = vim.api.nvim_get_runtime_file("lua/jellyfish/nvchad.lua", false)[1]
+  if not src then return end
+
+  local themes_dir = vim.fn.stdpath("config") .. "/lua/themes"
+  local dest = themes_dir .. "/jellyfish.lua"
+
+  if vim.fn.isdirectory(themes_dir) == 0 then
+    vim.fn.mkdir(themes_dir, "p")
+  end
+
+  local src_file = io.open(src, "r")
+  if not src_file then return end
+  local content = src_file:read("*a")
+  src_file:close()
+
+  local dest_file_read = io.open(dest, "r")
+  if dest_file_read then
+    local dest_content = dest_file_read:read("*a")
+    dest_file_read:close()
+    if dest_content == content then return end -- Already installed and up-to-date
+  end
+
+  local dest_file_write = io.open(dest, "w")
+  if not dest_file_write then return end
+  dest_file_write:write(content)
+  dest_file_write:close()
+  
+  -- Notify the user on first install
+  vim.notify("Jellyfish theme installed to NvChad! Press <space> + t + h to switch to it.", vim.log.levels.INFO)
+end
+
 return M

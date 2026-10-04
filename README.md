@@ -44,11 +44,11 @@
 
 ### Method 1: NvChad (Recommended)
 
-NvChad v2.5+ uses a custom theming system. Follow these steps:
+NvChad v2.5+ uses a custom theming system. We have included an automatic patcher that installs the theme for you!
 
-#### Step 1 — Install the plugin
+**Step 1 — Install the plugin**
 
-Add the plugin to your NvChad custom plugins. Edit `~/.config/nvim/lua/plugins/init.lua` (or wherever your custom plugins are defined):
+Add the plugin to your NvChad custom plugins. Edit `~/.config/nvim/lua/plugins/init.lua`:
 
 ```lua
 return {
@@ -56,107 +56,23 @@ return {
     "Graphical27/jellyfish-nvim",
     lazy = false,
     priority = 1000,
+    config = function()
+      require("jellyfish").patch_nvchad()
+    end,
   },
 }
 ```
 
-#### Step 2 — Create the NvChad theme file
+**Step 2 — Switch to the theme**
 
-Copy the NvChad integration file to your themes directory:
+Restart Neovim. The plugin will automatically copy the theme file so NvChad can find it. 
+Press `<space> + t + h` and select **jellyfish** from the menu!
 
-```bash
-mkdir -p ~/.config/nvim/lua/themes
-cp ~/.local/share/nvim/lazy/jellyfish.nvim/lua/jellyfish/nvchad.lua \
-   ~/.config/nvim/lua/themes/jellyfish.lua
-```
-
-Or create `~/.config/nvim/lua/themes/jellyfish.lua` manually with:
-
+*(Optional)* To make it your default theme on startup, add this to your `~/.config/nvim/lua/chadrc.lua`:
 ```lua
--- ~/.config/nvim/lua/themes/jellyfish.lua
----@type Base46Table
-local M = {}
-
-M.base_30 = {
-  white         = "#e6e6e6",
-  darker_black  = "#0e0e10",
-  black         = "#151517",
-  black2        = "#1c1c1e",
-  one_bg        = "#222224",
-  one_bg2       = "#2c2c2e",
-  one_bg3       = "#343436",
-  grey          = "#3e3e40",
-  grey_fg       = "#4a4a4c",
-  grey_fg2      = "#565658",
-  light_grey    = "#636365",
-  red           = "#F88DAD",
-  baby_pink     = "#F9A8BF",
-  pink          = "#da68fb",
-  line          = "#2c2c2e",
-  green         = "#68EDC6",
-  vibrant_green = "#7AF0D0",
-  nord_blue     = "#3BA5E0",
-  blue          = "#00A6FB",
-  yellow        = "#ACAFFF",
-  sun           = "#BFC2FF",
-  purple        = "#da68fb",
-  dark_purple   = "#b84edd",
-  teal          = "#5cc9f5",
-  orange        = "#e2c08d",
-  cyan          = "#5cc9f5",
-  statusline_bg = "#1c1c1e",
-  lightbg       = "#2c2c2e",
-  pmenu_bg      = "#5cc9f5",
-  folder_bg     = "#5cc9f5",
-}
-
-M.base_16 = {
-  base00 = "#151517",
-  base01 = "#1c1c1e",
-  base02 = "#2c2c2e",
-  base03 = "#5c6370",
-  base04 = "#757575",
-  base05 = "#cccccc",
-  base06 = "#e6e6e6",
-  base07 = "#ffffff",
-  base08 = "#F88DAD",
-  base09 = "#ACAFFF",
-  base0A = "#00A6FB",
-  base0B = "#68EDC6",
-  base0C = "#5cc9f5",
-  base0D = "#5cc9f5",
-  base0E = "#da68fb",
-  base0F = "#F88DAD",
-}
-
-M.type = "dark"
-
-M = require("base46").override_theme(M, "jellyfish")
-
-return M
-```
-
-#### Step 3 — Set the theme
-
-In your `~/.config/nvim/lua/chadrc.lua`:
-
-```lua
----@type ChadrcConfig
-local M = {}
-
 M.base46 = {
   theme = "jellyfish",
 }
-
-return M
-```
-
-#### Step 4 — Reload
-
-Restart Neovim or run:
-
-```vim
-:NvChadUpdate
 ```
 
 ---
