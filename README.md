@@ -1,5 +1,5 @@
 <p align="center">
-  <h2 align="center">Jellyfish for Neovim</h2>
+  <h2 align="center">🪼 Jellyfish for Neovim</h2>
 </p>
 
 <p align="center">
