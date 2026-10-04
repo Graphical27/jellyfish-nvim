@@ -109,7 +109,7 @@ function M.get(p, cfg)
     Conditional                  = { fg = p.purple, italic = keyword_style == italic },
     Repeat                       = { fg = p.purple, italic = keyword_style == italic },
     Label                        = { fg = p.pink },
-    Operator                     = { fg = p.fg },
+    Operator                     = { fg = p.purple },
     Keyword                      = { fg = p.purple, italic = keyword_style == italic },
     Exception                    = { fg = p.purple },
 
@@ -185,6 +185,7 @@ function M.get(p, cfg)
     ["@constant.macro"]          = { fg = p.lavender },
 
     ["@module"]                  = { fg = p.blue },
+    ["@namespace"]               = { fg = p.blue },
     ["@label"]                   = { fg = p.pink },
 
     ["@string"]                  = { fg = p.green },
@@ -201,7 +202,7 @@ function M.get(p, cfg)
     ["@number.float"]            = { fg = p.lavender },
 
     ["@type"]                    = { fg = p.blue },
-    ["@type.builtin"]            = { fg = p.blue },
+    ["@type.builtin"]            = { fg = p.purple },
     ["@type.definition"]         = { fg = p.blue },
     ["@type.qualifier"]          = { fg = p.purple },
 
@@ -216,7 +217,7 @@ function M.get(p, cfg)
     ["@function.method.call"]    = { fg = p.cyan },
 
     ["@constructor"]             = { fg = p.blue },
-    ["@operator"]                = { fg = p.fg },
+    ["@operator"]                = { fg = p.purple },
 
     ["@keyword"]                 = { fg = p.purple, italic = keyword_style == italic },
     ["@keyword.coroutine"]       = { fg = p.purple, italic = keyword_style == italic },
