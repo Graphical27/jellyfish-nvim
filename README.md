@@ -1,5 +1,5 @@
 <p align="center">
-  <h2 align="center">🪼 Jellyfish for Neovim</h2>
+  <h2 align="center">Jellyfish for Neovim</h2>
 </p>
 
 <p align="center">
@@ -15,17 +15,17 @@
 
 ---
 
-## ✨ Features
+## Features
 
-- 🎨 **Pixel-perfect port** of every color from the original VS Code theme
-- 🌳 **Full Treesitter support** — all `@capture` groups covered
-- 🔍 **LSP semantic token** highlights
-- 🔌 **Plugin support** — Telescope, nvim-tree, neo-tree, gitsigns, nvim-cmp, which-key, bufferline, noice, notify, lazy.nvim, mason, mini.nvim, dashboard, alpha
-- 🏠 **NvChad native integration** — base46 theme file included
-- ⚙️ **Configurable** — transparent backgrounds, italic toggles, undercurl control
-- 🧹 **Clean architecture** — palette, config, and highlights are fully separated
+- **Pixel-perfect port** of every color from the original VS Code theme
+- **Full Treesitter support** — all `@capture` groups covered
+- **LSP semantic token** highlights
+- **Plugin support** — Telescope, nvim-tree, neo-tree, gitsigns, nvim-cmp, which-key, bufferline, noice, notify, lazy.nvim, mason, mini.nvim, dashboard, alpha
+- **NvChad native integration** — base46 theme file included
+- **Configurable** — transparent backgrounds, italic toggles, undercurl control
+- **Clean architecture** — palette, config, and highlights are fully separated
 
-## 🎨 Palette
+## Palette
 
 | Swatch | Name | Hex | Usage |
 |--------|------|-----|-------|
@@ -40,7 +40,7 @@
 
 ---
 
-## 📦 Installation
+## Installation
 
 ### Method 1: NvChad (Recommended)
 
@@ -53,7 +53,7 @@ Add the plugin to your NvChad custom plugins. Edit `~/.config/nvim/lua/plugins/i
 ```lua
 return {
   {
-    "your-username/jellyfish.nvim",
+    "Graphical27/jellyfish-nvim",
     lazy = false,
     priority = 1000,
   },
@@ -165,7 +165,7 @@ Restart Neovim or run:
 
 ```lua
 {
-  "your-username/jellyfish.nvim",
+  "Graphical27/jellyfish-nvim",
   lazy = false,
   priority = 1000,
   config = function()
@@ -184,7 +184,7 @@ Restart Neovim or run:
 
 ```lua
 use({
-  "your-username/jellyfish.nvim",
+  "Graphical27/jellyfish-nvim",
   config = function()
     require("jellyfish").setup()
     vim.cmd.colorscheme("jellyfish")
@@ -195,8 +195,8 @@ use({
 ### Method 4: Manual
 
 ```bash
-git clone https://github.com/your-username/jellyfish.nvim \
-  ~/.local/share/nvim/site/pack/themes/start/jellyfish.nvim
+git clone https://github.com/Graphical27/jellyfish-nvim \
+  ~/.local/share/nvim/site/pack/themes/start/jellyfish-nvim
 ```
 
 Then add to your `init.lua`:
@@ -208,7 +208,7 @@ vim.cmd.colorscheme("jellyfish")
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 All options are optional. Call `setup()` before loading the colorscheme:
 
@@ -223,7 +223,7 @@ require("jellyfish").setup({
 
 ---
 
-## 🔌 Supported Plugins
+## Supported Plugins
 
 | Plugin | Status |
 |--------|--------|
@@ -247,7 +247,7 @@ require("jellyfish").setup({
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 jellyfish.nvim/
@@ -266,11 +266,11 @@ jellyfish.nvim/
 
 ---
 
-## 🙏 Credits
+## Credits
 
 - Original [Jellyfish VS Code theme](https://marketplace.visualstudio.com/items?itemName=nerudevs.jellyfish-dark) by [nerudevs](https://github.com/isneru)
 - Inspired by the Neovim theming ecosystem
 
-## 📄 License
+## License
 
 [MIT](./LICENSE)
